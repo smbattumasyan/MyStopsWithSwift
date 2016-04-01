@@ -30,12 +30,26 @@ class MSViewController: UIViewController, UITableViewDelegate {
         // Dispose of any resources that can be recreated.
     }
 
+    // MARK: - IBActions
+
+
+    @IBAction func addButtonAction(sender: AnyObject) {
+        self.performSegueWithIdentifier("MSViewController", sender: self)
+    }
+
+
     // MARK: - Private Methods
 
     func setupTableView() {
         self.tableView.dataSource     = self.dataController
         self.dataController.tableView = self.tableView
         self.dataController.initFetchedResultsController()
+    }
+
+    // MARK: - Navigation
+
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
     }
 }
 

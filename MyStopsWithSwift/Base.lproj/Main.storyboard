@@ -83,15 +83,55 @@
                             <constraint firstItem="NGy-DM-qaw" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="ikR-Nh-dWb"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="svs-f8-HdS"/>
+                    <navigationItem key="navigationItem" id="svs-f8-HdS">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="PfS-1d-uWw">
+                            <connections>
+                                <action selector="addButtonAction:" destination="BYZ-38-t0r" id="fZx-G4-L68"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="NGy-DM-qaw" id="GNn-9p-tT8"/>
+                        <segue destination="PxA-Gh-Kwb" kind="show" identifier="MSViewController" id="Sdf-76-xuY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="962" y="453"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="4pi-EU-SkC">
+            <objects>
+                <viewController id="PxA-Gh-Kwb" customClass="MSMapViewController" customModule="MyStopsWithSwift" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Xvd-Mm-Qlz"/>
+                        <viewControllerLayoutGuide type="bottom" id="orV-wY-WGG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="RER-Ag-KJK">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="eTp-Ck-JlS">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="eTp-Ck-JlS" secondAttribute="trailing" id="1yk-rg-YbY"/>
+                            <constraint firstItem="orV-wY-WGG" firstAttribute="top" secondItem="eTp-Ck-JlS" secondAttribute="bottom" id="Ill-dQ-Vac"/>
+                            <constraint firstItem="eTp-Ck-JlS" firstAttribute="top" secondItem="RER-Ag-KJK" secondAttribute="top" id="YxH-JM-cHA"/>
+                            <constraint firstItem="eTp-Ck-JlS" firstAttribute="leading" secondItem="RER-Ag-KJK" secondAttribute="leading" id="zNB-Tj-pFM"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="mapView" destination="eTp-Ck-JlS" id="GdH-eF-ltX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D4k-bL-78v" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1381" y="453"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Lyf-tN-vni">

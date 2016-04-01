@@ -15,6 +15,7 @@
 		8014F1ED1CAD1C6400149F21 /* MyStopsWithSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8014F1EC1CAD1C6400149F21 /* MyStopsWithSwiftTests.swift */; };
 		8014F1F81CAD1C6400149F21 /* MyStopsWithSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8014F1F71CAD1C6400149F21 /* MyStopsWithSwiftUITests.swift */; };
 		8014F2071CAD1CA000149F21 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8014F2061CAD1CA000149F21 /* CoreDataManager.swift */; };
+		801658BC1CAEA92F0001024A /* MSMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801658BB1CAEA92F0001024A /* MSMapViewController.swift */; };
 		80AB98131CAD3DB90095E26F /* Place+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AB98111CAD3DB90095E26F /* Place+CoreDataProperties.swift */; };
 		80AB98141CAD3DB90095E26F /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AB98121CAD3DB90095E26F /* Place.swift */; };
 		80AB981A1CAD3E3F0095E26F /* PlaceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AB98191CAD3E3F0095E26F /* PlaceManager.swift */; };
@@ -55,6 +56,7 @@
 		8014F1F71CAD1C6400149F21 /* MyStopsWithSwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyStopsWithSwiftUITests.swift; sourceTree = "<group>"; };
 		8014F1F91CAD1C6400149F21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8014F2061CAD1CA000149F21 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		801658BB1CAEA92F0001024A /* MSMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSMapViewController.swift; sourceTree = "<group>"; };
 		80AB98011CAD3B450095E26F /* MyStopsWithSwift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MyStopsWithSwift-Bridging-Header.h"; sourceTree = "<group>"; };
 		80AB98111CAD3DB90095E26F /* Place+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Place+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		80AB98121CAD3DB90095E26F /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
@@ -152,6 +154,14 @@
 			name = CoreData;
 			sourceTree = "<group>";
 		};
+		801658BA1CAEA8E60001024A /* MSMapViewController */ = {
+			isa = PBXGroup;
+			children = (
+				801658BB1CAEA92F0001024A /* MSMapViewController.swift */,
+			);
+			name = MSMapViewController;
+			sourceTree = "<group>";
+		};
 		80AB980C1CAD3C6C0095E26F /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -166,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				80AB985D1CAE4DF50095E26F /* MSTableController */,
+				801658BA1CAEA8E60001024A /* MSMapViewController */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -312,6 +323,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				80AB985B1CAE4D380095E26F /* MSViewController.swift in Sources */,
+				801658BC1CAEA92F0001024A /* MSMapViewController.swift in Sources */,
 				8014F1DD1CAD1C6400149F21 /* MyStopsWithSwift.xcdatamodeld in Sources */,
 				8014F2071CAD1CA000149F21 /* CoreDataManager.swift in Sources */,
 				80AB98141CAD3DB90095E26F /* Place.swift in Sources */,
