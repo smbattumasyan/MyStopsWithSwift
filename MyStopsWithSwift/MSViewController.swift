@@ -22,7 +22,7 @@ class MSViewController: UIViewController, UITableViewDelegate {
         // Do any additional setup after loading the view, typically from a nib.
         self.setupTableView()
         self.dataController.placeManager.addPlace(["pinTitle": "pinanun", "latitude":(43.200), "longitude": (43.200)])
-
+//        self.tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,10 +33,9 @@ class MSViewController: UIViewController, UITableViewDelegate {
     // MARK: - Private Methods
 
     func setupTableView() {
-        self.tableView.dataSource = self.dataController
+        self.tableView.dataSource     = self.dataController
+        self.dataController.tableView = self.tableView
         self.dataController.initFetchedResultsController()
-
-        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "reuseIdentifier")
     }
 }
 

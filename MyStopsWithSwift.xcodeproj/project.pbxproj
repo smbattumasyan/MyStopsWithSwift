@@ -20,6 +20,7 @@
 		80AB981A1CAD3E3F0095E26F /* PlaceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AB98191CAD3E3F0095E26F /* PlaceManager.swift */; };
 		80AB985B1CAE4D380095E26F /* MSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AB985A1CAE4D380095E26F /* MSViewController.swift */; };
 		80AB985F1CAE4E790095E26F /* MSDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AB985E1CAE4E790095E26F /* MSDataController.swift */; };
+		80AB98611CAE54010095E26F /* MSTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AB98601CAE54010095E26F /* MSTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		80AB98191CAD3E3F0095E26F /* PlaceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceManager.swift; sourceTree = "<group>"; };
 		80AB985A1CAE4D380095E26F /* MSViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSViewController.swift; sourceTree = "<group>"; };
 		80AB985E1CAE4E790095E26F /* MSDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSDataController.swift; sourceTree = "<group>"; };
+		80AB98601CAE54010095E26F /* MSTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,8 +112,8 @@
 		8014F1D31CAD1C6400149F21 /* MyStopsWithSwift */ = {
 			isa = PBXGroup;
 			children = (
-				8014F2051CAD1C6F00149F21 /* CoreData */,
 				8014F1D41CAD1C6400149F21 /* AppDelegate.swift */,
+				8014F2051CAD1C6F00149F21 /* CoreData */,
 				80AB985C1CAE4DE00095E26F /* Controllers */,
 				8014F1D81CAD1C6400149F21 /* Main.storyboard */,
 				8014F1DE1CAD1C6400149F21 /* Assets.xcassets */,
@@ -171,6 +173,7 @@
 		80AB985D1CAE4DF50095E26F /* MSTableController */ = {
 			isa = PBXGroup;
 			children = (
+				80AB98601CAE54010095E26F /* MSTableViewCell.swift */,
 				80AB985E1CAE4E790095E26F /* MSDataController.swift */,
 				80AB985A1CAE4D380095E26F /* MSViewController.swift */,
 			);
@@ -315,6 +318,7 @@
 				80AB981A1CAD3E3F0095E26F /* PlaceManager.swift in Sources */,
 				80AB98131CAD3DB90095E26F /* Place+CoreDataProperties.swift in Sources */,
 				8014F1D51CAD1C6400149F21 /* AppDelegate.swift in Sources */,
+				80AB98611CAE54010095E26F /* MSTableViewCell.swift in Sources */,
 				80AB985F1CAE4E790095E26F /* MSDataController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

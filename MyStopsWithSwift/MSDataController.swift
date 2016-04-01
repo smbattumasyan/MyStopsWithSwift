@@ -11,23 +11,22 @@ import CoreData
 
 class MSDataController: NSObject, UITableViewDataSource,  NSFetchedResultsControllerDelegate{
     let placeManager = PlaceManager()
-    let tableView = UITableView()
+    var tableView : UITableView!
 
     // MARK: - Table View Data Source
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //        let sectionInfo = self.placeManager.fetchedResultsController!.sections![section]
-        return (self.placeManager._fetchedResultsController?.fetchedObjects?.count)!
+        return (self.placeManager.fetchedResultsController.fetchedObjects?.count)!
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! MSTableViewCell
         let place = (self.placeManager.fetchedResultsController.objectAtIndexPath(indexPath)) as! Place
 
-        cell.textLabel?.text = place.pinTitle
+        cell.place = place
         return cell
     }
-
 
     // MARK: - Fetched results controller
 
@@ -64,7 +63,7 @@ class MSDataController: NSObject, UITableViewDataSource,  NSFetchedResultsContro
     }
 
     func initFetchedResultsController() {
-        self.placeManager._fetchedResultsController?.delegate = self
+        self.placeManager.fetchedResultsController.delegate = self
     }
 }
 
