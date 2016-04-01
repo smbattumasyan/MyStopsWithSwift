@@ -1,36 +1,22 @@
 //
-//  ViewController.swift
+//  MSDataController.swift
 //  MyStopsWithSwift
 //
-//  Created by Smbat Tumasyan on 3/31/16.
+//  Created by Smbat Tumasyan on 4/1/16.
 //  Copyright © 2016 EGS. All rights reserved.
 //
 
 import UIKit
 import CoreData
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate {
+class MSDataController: NSObject, UITableViewDataSource,  NSFetchedResultsControllerDelegate{
     let placeManager = PlaceManager()
-    @IBOutlet weak var tableView: UITableView!
+    let tableView = UITableView()
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view, typically from a nib.
-        self.placeManager._fetchedResultsController?.delegate = self
-        self.placeManager.addPlace(["pinTitle": "pinanun", "latitude":(43.200), "longitude": (43.200)])
-        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "reuseIdentifier")
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    // MARK: - Table View
+    // MARK: - Table View Data Source
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        let sectionInfo = self.placeManager.fetchedResultsController!.sections![section]
+        //        let sectionInfo = self.placeManager.fetchedResultsController!.sections![section]
         return (self.placeManager._fetchedResultsController?.fetchedObjects?.count)!
     }
 
@@ -42,7 +28,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return cell
     }
 
-        // MARK: - Fetched results controller
+
+    // MARK: - Fetched results controller
 
     func controllerWillChangeContent(controller: NSFetchedResultsController) {
         self.tableView.beginUpdates()
@@ -66,7 +53,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         case .Delete:
             tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
         case .Update: break
-//            self.configureCell(self.tableView.cellForRowAtIndexPath(indexPath!)!, withObject: anObject as! NSManagedObject)
+        //            self.configureCell(self.tableView.cellForRowAtIndexPath(indexPath!)!, withObject: anObject as! NSManagedObject)
         case .Move:
             tableView.moveRowAtIndexPath(indexPath!, toIndexPath: newIndexPath!)
         }
@@ -75,5 +62,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func controllerDidChangeContent(controller: NSFetchedResultsController) {
         self.tableView.endUpdates()
     }
+
+    func initFetchedResultsController() {
+        self.placeManager._fetchedResultsController?.delegate = self
+    }
 }
+
+
+
 
