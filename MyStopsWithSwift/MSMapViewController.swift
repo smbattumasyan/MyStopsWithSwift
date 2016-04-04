@@ -12,8 +12,10 @@ import CoreLocation
 
 class MSMapViewController: UIViewController, CLLocationManagerDelegate {
 
-    var manager : CLLocationManager!
+    let dataController = MSMapDataController()
 
+    var manager : CLLocationManager!
+    var aPlace : NSMutableDictionary!
 
     @IBOutlet weak var mapView: MKMapView!
 
@@ -27,6 +29,16 @@ class MSMapViewController: UIViewController, CLLocationManagerDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+
+
+    @IBAction func longPressOnMapGestureAction(sender: UILongPressGestureRecognizer) {
+        if sender.state != UIGestureRecognizerState.Began {
+            return
+        }
+        let touchLocation = sender.locationInView(self.mapView)
+        self.getPinCoordinatesFromMap(touchLocation)
+        self.alertNewPin()
     }
 
 
@@ -55,6 +67,45 @@ class MSMapViewController: UIViewController, CLLocationManagerDelegate {
         self.mapView.setRegion(region, animated: true)
     }
 
+    func getPinCoordinatesFromMap(touchLocation:CGPoint) {
+        let locationCoordinate = self.mapView .convertPoint(touchLocation, toCoordinateFromView: self.mapView)
+        self.aPlace = NSMutableDictionary(dictionary: ["latitude":(locationCoordinate.latitude), "longitude": (locationCoordinate.longitude)])
+    }
+
+    func addPinOnMap() {
+        let annotation = MKPointAnnotation()
+        let locationCoordinate = CLLocationCoordinate2DMake(self.aPlace.valueForKey("latitude") as! CLLocationDegrees, self.aPlace.valueForKey("longitude") as! CLLocationDegrees)
+        annotation.coordinate = locationCoordinate
+        self.mapView .addAnnotation(annotation)
+    }
+
+    func savePin() {
+        self.dataController.placeManager.addPlace(self.aPlace)
+    }
+
+    func alertNewPin() {
+        let newPinAlert = UIAlertController(title: "New Pin", message: "Do yo want to add new pin here", preferredStyle: UIAlertControllerStyle.Alert)
+        newPinAlert.addTextFieldWithConfigurationHandler{(textField:UITextField) -> Void in
+            textField.placeholder  = "Pin Name";
+            textField.keyboardType = UIKeyboardType.Default;
+        }
+        let save = UIAlertAction(title: "Save", style: UIAlertActionStyle.Default, handler: {(alert:UIAlertAction) -> Void in
+            let textField = newPinAlert.textFields![0] 
+            self.aPlace.addEntriesFromDictionary(["pinTitle": textField.text!])
+            print("aplace\(self.aPlace)")
+            self.savePin()
+            self.addPinOnMap()
+        })
+
+        let cancel = UIAlertAction(title:  "Cancel", style: UIAlertActionStyle.Default, handler: {(alert:UIAlertAction) -> Void in
+
+        })
+
+        newPinAlert.addAction(cancel)
+        newPinAlert.addAction(save)
+
+        self.presentViewController(newPinAlert, animated: true, completion: nil)
+    }
     /*
     // MARK: - Navigation
 

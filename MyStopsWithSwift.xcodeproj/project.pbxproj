@@ -16,6 +16,7 @@
 		8014F1F81CAD1C6400149F21 /* MyStopsWithSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8014F1F71CAD1C6400149F21 /* MyStopsWithSwiftUITests.swift */; };
 		8014F2071CAD1CA000149F21 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8014F2061CAD1CA000149F21 /* CoreDataManager.swift */; };
 		801658BC1CAEA92F0001024A /* MSMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801658BB1CAEA92F0001024A /* MSMapViewController.swift */; };
+		807236631CB25A15000AA4F4 /* MSMapDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807236621CB25A15000AA4F4 /* MSMapDataController.swift */; };
 		80AB98131CAD3DB90095E26F /* Place+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AB98111CAD3DB90095E26F /* Place+CoreDataProperties.swift */; };
 		80AB98141CAD3DB90095E26F /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AB98121CAD3DB90095E26F /* Place.swift */; };
 		80AB981A1CAD3E3F0095E26F /* PlaceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AB98191CAD3E3F0095E26F /* PlaceManager.swift */; };
@@ -57,6 +58,7 @@
 		8014F1F91CAD1C6400149F21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8014F2061CAD1CA000149F21 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		801658BB1CAEA92F0001024A /* MSMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSMapViewController.swift; sourceTree = "<group>"; };
+		807236621CB25A15000AA4F4 /* MSMapDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSMapDataController.swift; sourceTree = "<group>"; };
 		80AB98011CAD3B450095E26F /* MyStopsWithSwift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MyStopsWithSwift-Bridging-Header.h"; sourceTree = "<group>"; };
 		80AB98111CAD3DB90095E26F /* Place+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Place+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		80AB98121CAD3DB90095E26F /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 		801658BA1CAEA8E60001024A /* MSMapViewController */ = {
 			isa = PBXGroup;
 			children = (
+				807236621CB25A15000AA4F4 /* MSMapDataController.swift */,
 				801658BB1CAEA92F0001024A /* MSMapViewController.swift */,
 			);
 			name = MSMapViewController;
@@ -330,6 +333,7 @@
 				80AB981A1CAD3E3F0095E26F /* PlaceManager.swift in Sources */,
 				80AB98131CAD3DB90095E26F /* Place+CoreDataProperties.swift in Sources */,
 				8014F1D51CAD1C6400149F21 /* AppDelegate.swift in Sources */,
+				807236631CB25A15000AA4F4 /* MSMapDataController.swift in Sources */,
 				80AB98611CAE54010095E26F /* MSTableViewCell.swift in Sources */,
 				80AB985F1CAE4E790095E26F /* MSDataController.swift in Sources */,
 			);

@@ -114,6 +114,10 @@
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="eTp-Ck-JlS">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="iQ5-Qu-6Fe" appends="YES" id="n8t-LR-DHg"/>
+                                </connections>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -130,6 +134,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D4k-bL-78v" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="iQ5-Qu-6Fe">
+                    <connections>
+                        <action selector="longPressOnMapGestureAction:" destination="PxA-Gh-Kwb" id="wqE-mc-NL2"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1381" y="453"/>
         </scene>
