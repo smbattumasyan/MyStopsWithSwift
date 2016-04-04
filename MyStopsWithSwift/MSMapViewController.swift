@@ -12,12 +12,17 @@ import CoreLocation
 
 class MSMapViewController: UIViewController, CLLocationManagerDelegate {
 
+    // MARK: - Properties
     let dataController = MSMapDataController()
 
     var manager : CLLocationManager!
     var aPlace : NSMutableDictionary!
 
     @IBOutlet weak var mapView: MKMapView!
+
+    //------------------------------------------------------------------------------------------
+    // MARK: - Life Cyrcle
+    //------------------------------------------------------------------------------------------
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +36,9 @@ class MSMapViewController: UIViewController, CLLocationManagerDelegate {
         // Dispose of any resources that can be recreated.
     }
 
+    //------------------------------------------------------------------------------------------
+    // MARK: - IBActions
+    //------------------------------------------------------------------------------------------
 
     @IBAction func longPressOnMapGestureAction(sender: UILongPressGestureRecognizer) {
         if sender.state != UIGestureRecognizerState.Began {
@@ -42,25 +50,29 @@ class MSMapViewController: UIViewController, CLLocationManagerDelegate {
     }
 
 
+    //------------------------------------------------------------------------------------------
     // MARK: - Location Manager
+    //------------------------------------------------------------------------------------------
 
     func setupLocationManager() {
-        self.manager = CLLocationManager()
-        self.manager.delegate = self
-        self.manager.desiredAccuracy = kCLLocationAccuracyBest
+        self.manager                   = CLLocationManager()
+        self.manager.delegate          = self
+        self.manager.desiredAccuracy   = kCLLocationAccuracyBest
         self.manager.requestAlwaysAuthorization()
         self.manager.startUpdatingLocation()
         self.mapView.showsUserLocation = true
     }
 
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let locationArray = locations as NSArray
-        let newLocation = locationArray.lastObject as! CLLocation
+        let locationArray      = locations as NSArray
+        let newLocation        = locationArray.lastObject as! CLLocation
         let locationCoordinate = CLLocationCoordinate2DMake(newLocation.coordinate.latitude, newLocation.coordinate.longitude)
         self.setRegion(locationCoordinate)
     }
 
+    //------------------------------------------------------------------------------------------
     // MARK: - Private Methods
+    //------------------------------------------------------------------------------------------
 
     func setRegion(locationCoordinate:CLLocationCoordinate2D)  {
         let region = MKCoordinateRegionMake(locationCoordinate, MKCoordinateSpanMake(0.05, 0.05))
@@ -75,7 +87,7 @@ class MSMapViewController: UIViewController, CLLocationManagerDelegate {
     func addPinOnMap() {
         let annotation = MKPointAnnotation()
         let locationCoordinate = CLLocationCoordinate2DMake(self.aPlace.valueForKey("latitude") as! CLLocationDegrees, self.aPlace.valueForKey("longitude") as! CLLocationDegrees)
-        annotation.coordinate = locationCoordinate
+        annotation.coordinate  = locationCoordinate
         self.mapView .addAnnotation(annotation)
     }
 
@@ -92,7 +104,6 @@ class MSMapViewController: UIViewController, CLLocationManagerDelegate {
         let save = UIAlertAction(title: "Save", style: UIAlertActionStyle.Default, handler: {(alert:UIAlertAction) -> Void in
             let textField = newPinAlert.textFields![0] 
             self.aPlace.addEntriesFromDictionary(["pinTitle": textField.text!])
-            print("aplace\(self.aPlace)")
             self.savePin()
             self.addPinOnMap()
         })

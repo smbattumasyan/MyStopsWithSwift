@@ -9,5 +9,6 @@
 import UIKit
 
 class MSMapDataController: NSObject {
+    // MARK: - Properties
     var placeManager:PlaceManager!
 }

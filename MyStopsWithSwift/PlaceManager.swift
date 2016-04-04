@@ -11,9 +11,12 @@ import CoreData
 
 class PlaceManager: NSObject {
 
+    // MARK: - Properties
     let coreDataManager = CoreDataManager()
-//    var _fetchedResultsController: NSFetchedResultsController? = nil
 
+    //------------------------------------------------------------------------------------------
+    // MARK: - Class Methods
+    //------------------------------------------------------------------------------------------
 
     func addPlace(place:NSDictionary) {
 
@@ -28,11 +31,11 @@ class PlaceManager: NSObject {
 
     lazy var fetchedResultsController: NSFetchedResultsController = {
         // Initialize Fetch Request
-        let fetchRequest = NSFetchRequest(entityName: "Place")
+        let fetchRequest             = NSFetchRequest(entityName: "Place")
 
-        fetchRequest.fetchBatchSize = 20
+        fetchRequest.fetchBatchSize  = 20
         // Add Sort Descriptors
-        let sortDescriptor = NSSortDescriptor(key: "pinTitle", ascending: true)
+        let sortDescriptor           = NSSortDescriptor(key: "pinTitle", ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
 
         // Initialize Fetched Results Controller
@@ -46,9 +49,6 @@ class PlaceManager: NSObject {
             //print("Unresolved error \(error), \(error.userInfo)")
             abort()
         }
-
-        // Configure Fetched Results Controller
-//        fetchedResultsController.delegate = self
 
         return fetchedResultsController
     }()

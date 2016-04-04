@@ -10,25 +10,30 @@ import UIKit
 import CoreData
 
 class MSDataController: NSObject, UITableViewDataSource,  NSFetchedResultsControllerDelegate{
+
+    // MARK: - Properties
     let placeManager = PlaceManager()
     var tableView : UITableView!
 
+    //------------------------------------------------------------------------------------------
     // MARK: - Table View Data Source
+    //------------------------------------------------------------------------------------------
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //        let sectionInfo = self.placeManager.fetchedResultsController!.sections![section]
         return (self.placeManager.fetchedResultsController.fetchedObjects?.count)!
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! MSTableViewCell
-        let place = (self.placeManager.fetchedResultsController.objectAtIndexPath(indexPath)) as! Place
+        let cell   = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! MSTableViewCell
+        let place  = (self.placeManager.fetchedResultsController.objectAtIndexPath(indexPath)) as! Place
 
         cell.place = place
         return cell
     }
 
-    // MARK: - Fetched results controller
+    //------------------------------------------------------------------------------------------
+    // MARK: - Fetched results controller 
+    //------------------------------------------------------------------------------------------
 
     func controllerWillChangeContent(controller: NSFetchedResultsController) {
         self.tableView.beginUpdates()
@@ -52,7 +57,6 @@ class MSDataController: NSObject, UITableViewDataSource,  NSFetchedResultsContro
         case .Delete:
             tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
         case .Update: break
-        //            self.configureCell(self.tableView.cellForRowAtIndexPath(indexPath!)!, withObject: anObject as! NSManagedObject)
         case .Move:
             tableView.moveRowAtIndexPath(indexPath!, toIndexPath: newIndexPath!)
         }

@@ -10,11 +10,16 @@ import UIKit
 import CoreData
 
 class MSViewController: UIViewController, UITableViewDelegate {
-    
+
+    // MARK: - IBOutlets
     @IBOutlet weak var tableView: UITableView!
+
+    // MARK: - Properties
     let dataController = MSDataController()
 
+    //------------------------------------------------------------------------------------------
     // MARK: - Life Cyrcle
+    //------------------------------------------------------------------------------------------
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +33,9 @@ class MSViewController: UIViewController, UITableViewDelegate {
         // Dispose of any resources that can be recreated.
     }
 
+    //------------------------------------------------------------------------------------------
     // MARK: - Table View Delegate
+    //------------------------------------------------------------------------------------------
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let place = self.dataController.placeManager.fetchedResultsController.objectAtIndexPath(indexPath) as! Place
@@ -36,7 +43,9 @@ class MSViewController: UIViewController, UITableViewDelegate {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
 
+    //------------------------------------------------------------------------------------------
     // MARK: - IBActions
+    //------------------------------------------------------------------------------------------
 
 
     @IBAction func addButtonAction(sender: AnyObject) {
@@ -44,7 +53,9 @@ class MSViewController: UIViewController, UITableViewDelegate {
     }
 
 
+    //------------------------------------------------------------------------------------------
     // MARK: - Private Methods
+    //------------------------------------------------------------------------------------------
 
     func setupDirectionWithPlace(place: Place) {
         let urlString = NSString(format: "http://maps.apple.com/maps?daddr=%f,%f",(place.latitude?.floatValue)!,(place.longitude?.floatValue)!) as String
@@ -58,10 +69,12 @@ class MSViewController: UIViewController, UITableViewDelegate {
         self.dataController.initFetchedResultsController()
     }
 
+    //------------------------------------------------------------------------------------------
     // MARK: - Navigation
+    //------------------------------------------------------------------------------------------
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let mapViewController = segue.destinationViewController as! MSMapViewController
+        let mapViewController                         = segue.destinationViewController as! MSMapViewController
         mapViewController.dataController.placeManager = self.dataController.placeManager
     }
 }

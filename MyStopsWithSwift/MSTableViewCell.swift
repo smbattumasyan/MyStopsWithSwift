@@ -10,9 +10,12 @@ import UIKit
 
 class MSTableViewCell: UITableViewCell {
 
-//    var   _place = Place()
-
+    // MARK: - IBOutlets
     @IBOutlet weak var pinNameLabel: UILabel!
+
+    //------------------------------------------------------------------------------------------
+    // MARK: - Class Methods
+    //------------------------------------------------------------------------------------------
 
     override func awakeFromNib() {
         super.awakeFromNib()
